@@ -30,8 +30,8 @@ keymap('v', '<S-Down>', ":move '>+1<CR>gv-gv", opts)
 keymap('v', '<S-Up>',   ":move '<-2<CR>gv-gv", opts)
 
 -- Comment
-keymap('n', '<C-_>', ':CommentToggle<CR>', { noremap = true })
-keymap('v', '<C-_>', ':CommentToggle<CR>', { noremap = true })
+keymap('n', '<C-_>', 'gcc', { noremap = true })
+keymap('v', '<C-_>', 'gcc', { noremap = true })
 
 -- Windows navigation
 keymap('n', '<C-w>-',  ':split<CR>',  opts)
@@ -43,5 +43,5 @@ keymap('n', '<LocalLeader>wi', '<C-w>| <C-w>_', opts)
 keymap('n', '<LocalLeader>wo', '<C-w>=', opts)
 
 -- Tab navigation
-keymap('n', 'gT',  		  ':TablineBufferPrevious<CR>',  opts)
-keymap('n', 'gt',  		  ':TablineBufferNext<CR>',      opts)
+keymap('n', 'gT', ':TablineBufferPrevious<CR>',  opts)
+keymap('n', 'gt', ':TablineBufferNext<CR>',      opts)
