@@ -1,0 +1,24 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/alanjui/.config/quick-nvim/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
+1. Download configuration	README.md	/^### 1. Download configuration$/;"	S	section:quick.nvim""Setup quick.nvim
+2. Install plugins	README.md	/^### 2. Install plugins$/;"	S	section:quick.nvim""Setup quick.nvim
+Bindings	README.md	/^## Bindings$/;"	s	chapter:quick.nvim
+Clone repository	README.md	/^#### Clone repository$/;"	t	subsection:quick.nvim""Setup quick.nvim""1. Download configuration
+Maintainers	README.md	/^## Maintainers$/;"	s	chapter:quick.nvim
+Plugins	README.md	/^## Plugins$/;"	s	chapter:quick.nvim
+Prerequisites	README.md	/^## Prerequisites$/;"	s	chapter:quick.nvim
+Releases	README.md	/^#### Releases$/;"	t	subsection:quick.nvim""Setup quick.nvim""1. Download configuration
+Setup quick.nvim	README.md	/^## Setup quick.nvim$/;"	s	chapter:quick.nvim
+What is this?	README.md	/^## What is this?$/;"	s	chapter:quick.nvim
+coc.nvim	README.md	/^## coc.nvim$/;"	s	chapter:quick.nvim
+config	init.lua	/^            config = function()$/;"	f
+quick.nvim	README.md	/^# quick.nvim$/;"	c

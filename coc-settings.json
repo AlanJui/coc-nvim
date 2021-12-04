@@ -1,0 +1,24 @@
+{
+  "languageserver": {
+    "lua": {
+      "command": "/home/alanjui/.local/share/lua-language-server/bin/Linux/lua-language-server",
+      "args": [
+        "-E",
+        "/home/alanjui/.local/share/lua-language-server/bin/Linux/main.lua"
+      ],
+      "filetypes": ["lua"],
+      "settings": {
+        "Lua": {
+          "workspace.library": {
+            "/usr/share/nvim/runtime/lua": true,
+            "/usr/share/nvim/runtime/lua/vim": true,
+            "/usr/share/nvim/runtime/lua/vim/lsp": true
+          },
+          "diagnostics": {
+            "globals": [ "vim" ]
+          }  
+        }
+      }
+    }
+  }
+}
