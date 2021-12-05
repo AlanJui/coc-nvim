@@ -297,7 +297,17 @@ augroup end
 
 -- Configurations for Neovim
 -----------------------------------------------------------
-require('basics')
+require('settings')
+
+-- configuration for nvim-tree to show current working directory
+vim.cmd([[
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+        \ wincmd p | enew | execute 'cd ' .argv()[0] | endif
+]])
+
+vim.cmd([[
+    autocmd VimEnter * silent! lcd %:p:h
+]])
 
 -- Themes
 -- Tokyo Night Color Scheme Configuration
