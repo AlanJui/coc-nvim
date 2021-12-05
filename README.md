@@ -129,15 +129,15 @@ this.
 
 | Plugin    | Mapping      | Action                                  |
 | --------- | ------------ | --------------------------------------- |
+|           | \<Space\>e   | Open file explorer                      |
+|           | \<Space\>;   | Open a terminal window                  |
 |           | sp           | Split window horizontally               |
 |           | vs           | Split window vertically                 |
 |           | \<C-H\>      | Move cursor to split left               |
 |           | \<C-J\>      | Move cursor to split down               |
 |           | \<C-K\>      | Move cursor to split up                 |
 |           | \<C-L\>      | Move cursor to split right              |
-|           | \<leader\>f  | Open file explorer                      |
-|           | \<C-S\>      | Open search & replace                   |
-|           | \<leader-t\> | Open a terminal buffer                  |
+|           | fr           | Search & replace in current buffer      |
 |           | tj           | Move one tab left                       |
 |           | tk           | Move one tab right                      |
 |           | tn           | Create a new tab                        |
