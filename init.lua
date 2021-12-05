@@ -4,13 +4,12 @@ require('essential')
 
 -- Plugin Manager: install plugins
 -----------------------------------------------------------
--- /home/alanjui/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls
+-- Coc.nvim Lua LS: /home/alanjui/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls
+local path = require('utils')
 local fn = vim.fn
-local home_path = os.getenv('HOME')
-local my_nvim = 'quick-nvim'
-local package_root = home_path .. '/.local/share/' .. my_nvim .. '/site/pack'
-local install_path = package_root .. '/packer/start/packer.nvim'
-local compile_path = home_path .. '/.config/' .. my_nvim .. '/plugin/packer_compiled.lua'
+local package_root = path.get_package_root()
+local install_path = path.get_install_path()
+local compile_path = path.get_compile_path()
 local packer_bootstrap
 
 -- print('install_path = ', install_path)
@@ -188,12 +187,12 @@ require('packer').startup({
         -- HTML
         ---------------------------------------------------------------
         -- provides support for expanding abbreviations similar to emmet
-        use {
-            'mattn/emmet-vim',
-            config = vim.cmd([[
-                runtime ./lua/plugins/emmet-vim.rc.vim
-            ]])
-        }
+        -- use {
+        --     'mattn/emmet-vim',
+        --     config = vim.cmd([[
+        --         runtime ./lua/plugins/emmet-vim.rc.vim
+        --     ]])
+        -- }
         -- Auto close tag
         use {
             'alvan/vim-closetag',
@@ -335,16 +334,16 @@ vim.api.nvim_set_keymap('n', '<C-N>', ":Lexplore<CR> :vertical resize 30<CR>", {
 vim.api.nvim_set_keymap("n", "<leader>t", ":sp<CR> :term<CR> :resize 20N<CR> i", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
 -- require('coc-config')
-vim.api.nvim_set_keymap("n", "<leader>.", "<Plug>(coc-codeaction)", {})
-vim.api.nvim_set_keymap("n", "<leader>l", ":CocCommand eslint.executeAutofix<CR>", {})
-vim.api.nvim_set_keymap("n", "gd", "<Plug>(coc-definition)", {silent = true})
-vim.api.nvim_set_keymap("n", "K", ":call CocActionAsync('doHover')<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>rn", "<Plug>(coc-rename)", {})
-vim.api.nvim_set_keymap("n", "<leader>f", ":CocCommand prettier.formatFile<CR>", {noremap = true})
-vim.api.nvim_set_keymap("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
-vim.api.nvim_set_keymap("i", "<TAB>", "pumvisible() ? '<C-n>' : '<TAB>'", {noremap = true, silent = true, expr = true})
-vim.api.nvim_set_keymap("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'", {noremap = true, expr = true})
-vim.api.nvim_set_keymap("i", "<CR>", "pumvisible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'", {silent = true, expr = true, noremap = true})
+-- vim.api.nvim_set_keymap("n", "<leader>.", "<Plug>(coc-codeaction)", {})
+-- vim.api.nvim_set_keymap("n", "<leader>l", ":CocCommand eslint.executeAutofix<CR>", {})
+-- vim.api.nvim_set_keymap("n", "gd", "<Plug>(coc-definition)", {silent = true})
+-- vim.api.nvim_set_keymap("n", "K", ":call CocActionAsync('doHover')<CR>", {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap("n", "<leader>rn", "<Plug>(coc-rename)", {})
+-- vim.api.nvim_set_keymap("n", "<leader>f", ":CocCommand prettier.formatFile<CR>", {noremap = true})
+-- vim.api.nvim_set_keymap("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
+-- vim.api.nvim_set_keymap("i", "<TAB>", "pumvisible() ? '<C-n>' : '<TAB>'", {noremap = true, silent = true, expr = true})
+-- vim.api.nvim_set_keymap("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'", {noremap = true, expr = true})
+-- vim.api.nvim_set_keymap("i", "<CR>", "pumvisible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'", {silent = true, expr = true, noremap = true})
 
 -- Load Which-key
 require('plugins.vim-which-key')

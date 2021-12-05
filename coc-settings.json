@@ -97,5 +97,6 @@
     "jsonc",
     "lua",
     "markdown"
-  ]
+  ],
+  "coc.preferences.extensionUpdateCheck": "daily"
 }
