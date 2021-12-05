@@ -23,7 +23,7 @@ Neovim 0.5 提供了 LSP 的支援，但我無法確認目前可用的 Plugins �
 
 因此有了這個實驗性質的專案。
 
-## Plugins
+## 插件（Plugins）
 
 - [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - [Packer](https://github.com/wbthomason/packer.nvim)
@@ -38,28 +38,34 @@ Neovim 0.5 提供了 LSP 的支援，但我無法確認目前可用的 Plugins �
 - [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [vim-commentary](https://github.com/tpope/vim-commentary/)
 
-## Prerequisites
+## 先決條件（Prerequisites）
 
 - [Neovim 0.5 or above](https://neovim.io)
 - [Node.js](https://nodejs.org)
 
-## Setup quick.nvim
+## 安裝與設定作業（Setup process）
 
-### 1. Download configuration
-
-#### Clone repository
+### 1. 下載（Download）
 
 ```sh
 git clone git@github.com:AlanJui/coc-nvim.git ~/.config/nvim
 ```
 
-### 2. Install plugins
+### 2. 安裝插件（Install plugins）
+
+本專案使用 packer.nvim 作為 Neovim 的「插件管理工具」。本身具自動安裝
+packer.nvim 插件，與其它專案會使用到的 Neovim 插件。安裝插件的工作，
+應能於 Neovim 啟動後自動執行。若遇有異常狀況，可透過以下兩步驟手動執行。
 
 To install the plugins used by quick.nvim, you need to do so using Packer.
+
+（1）啟動 Neovim 。
 
 ```
 nvim ~/.config/nvim/init.lua
 ```
+
+（2）在 Neovim 執行安裝指令。
 
 ```
 :PackerInstall
@@ -67,21 +73,55 @@ nvim ~/.config/nvim/init.lua
 
 ## coc.nvim
 
+在 Neovim 0.5 尚未推出前，coc.nvim 是 Neovim 使用者的良伴。可令 Neovim
+的操作，宛若使用 VS Code 一般。因為發行已久，且廣為軟體開發者推崇及使用
+，所以其可用性及穩定性，毋庸置疑。
+
 This configuration uses [coc.nvim](https://github.com/neoclide/coc.nvim) for
 intellisense, instead of the built-in Neovim LSP. This is because I think it's
 not quite mature yet, pretty tricky to configure, and doesn't have a quite as
 many languages and frameworks supported.
+
+本專案透過 coc.nvim 提供的功能，可依「設定檔」進行：「COC 插件」的自動安裝作業。
+
+```vim
+let g:coc_global_extensions = [
+\ 'coc-pyright',
+\ 'coc-htmldjango',
+\ 'coc-emmet',
+\ 'coc-html',
+\ 'coc-css',
+\ 'coc-tsserver',
+\ 'coc-json',
+\ 'coc-syntax',
+\ 'coc-diagnostic',
+\ 'coc-prettier',
+\ 'coc-snippets',
+\ 'coc-tslint-plugin',
+\ 'coc-highlight',
+\ 'coc-smartf',
+\ 'coc-git',
+\ 'coc-docker',
+\ 'coc-yaml',
+\ 'coc-sh',
+\ 'coc-xml',
+\ 'coc-yank',
+\ ]
+```
 
 quick.nvim doesn't ship with any default coc plugins though, so you have to
 install the ones you want to use. For example if you want to use quick.nvim for
 TypeScript programming, you'll have to install the coc-tsserver plugin like
 this.
 
+若使用者欲自行安裝某項 COC 插件，如：TypeScript Language Server 插件，可於
+進入 Neovim 後，在「指令列」以「CocInstall」自行安裝。
+
 ```
 :CocInstall coc-tsserver
 ```
 
-## Bindings
+## 快捷鍵（Bindings）
 
 **\<leader\>** = "\<Space/\>"
 
@@ -115,7 +155,7 @@ this.
 | Telescope | \<C-P\>      | Open file picker               |
 | Telescope | \<C-T\>      | Open Git worktree picker       |
 
-## Maintainers
+## 維護者（Maintainers）
 
 <a href="https://github.com/albingroen"> 
   <img src="https://avatars.githubusercontent.com/u/2138279?v=4" width="80" height="80" />
