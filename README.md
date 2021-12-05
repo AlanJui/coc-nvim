@@ -109,13 +109,13 @@ let g:coc_global_extensions = [
 \ ]
 ```
 
+若使用者欲自行安裝某項 COC 插件，如：TypeScript Language Server 插件，可於
+進入 Neovim 後，在「指令列」以「CocInstall」自行安裝。
+
 quick.nvim doesn't ship with any default coc plugins though, so you have to
 install the ones you want to use. For example if you want to use quick.nvim for
 TypeScript programming, you'll have to install the coc-tsserver plugin like
 this.
-
-若使用者欲自行安裝某項 COC 插件，如：TypeScript Language Server 插件，可於
-進入 Neovim 後，在「指令列」以「CocInstall」自行安裝。
 
 ```
 :CocInstall coc-tsserver
@@ -123,37 +123,43 @@ this.
 
 ## 快捷鍵（Bindings）
 
-**\<leader\>** = "\<Space/\>"
+【附註】：
+
+**〈leader〉** = `《，》`
 
 | Plugin    | Mapping      | Action                         |
 | --------- | ------------ | ------------------------------ |
-|           | \<C-H\>      | Move one split left            |
-|           | \<C-J\>      | Move one split down            |
-|           | \<C-K\>      | Move one split up              |
-|           | \<C-L\>      | Move one split right           |
-|           | \<C-N\>      | Open file explorer             |
+|           | \<C-H\>      | Move cursor to split left      |
+|           | \<C-J\>      | Move cursor to split down      |
+|           | \<C-K\>      | Move cursor to split up        |
+|           | \<C-L\>      | Move cursor to split right     |
+|           | \<leader\>f  | Open file explorer             |
 |           | \<C-S\>      | Open search & replace          |
 |           | \<leader-t\> | Open a terminal buffer         |
 |           | sp           | Split window horizontally      |
+|           | vs           | Split window vertically        |
 |           | tj           | Move one tab left              |
 |           | tk           | Move one tab right             |
 |           | tn           | Create a new tab               |
 |           | to           | Close all other tabs           |
-|           | vs           | Split window vertically        |
-| coc       | K            | Hover over symbol              |
-| coc       | \<C-Space\>  | Open autocompletion            |
-| coc       | \<CR\>       | Select autocompletion          |
-| coc       | \<S-TAB\>    | Browse previous autocompletion |
-| coc       | \<TAB\>      | Browse next autocompletion     |
+| coc       | \<C-@\>      | Open autocompletion            |
+| coc       | \<Enter\>    | Select autocompletion          |
+| coc       | \<S-Tab\>    | Browse previous autocompletion |
+| coc       | \<Tab\>      | Browse next autocompletion     |
 | coc       | \<leader\>.  | Open code actions              |
 | coc       | \<leader\>f  | Format file with prettier      |
 | coc       | \<leader\>l  | Execute code autofix           |
-| coc       | \<leader\>rn | Rename symbol                  |
+| coc       | \<leader\>rn | Rename                         |
+| coc       | K            | Hover over symbol (show doc)   |
 | coc       | gd           | Go to definition               |
-| Telescope | \<C-B\>      | Open buffer picker             |
-| Telescope | \<C-F\>      | Open project search            |
-| Telescope | \<C-P\>      | Open file picker               |
-| Telescope | \<C-T\>      | Open Git worktree picker       |
+| coc       | gy           | Go to type definition          |
+| coc       | gi           | Go to implementation           |
+| coc       | gr           | Go to references               |
+| coc       | gr           | Go to references               |
+| Telescope | ;b           | Open buffer picker             |
+| Telescope | \<           | Open project search            |
+| Telescope | ;f           | Open file picker               |
+| Telescope | ;t           | Open Git worktree picker       |
 
 ## 維護者（Maintainers）
 

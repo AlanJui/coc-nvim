@@ -21,13 +21,8 @@ keymap('n', '<Leader><Right>', '<C-w>l', {silent = true})
 
 -- Normal mode (mappings without prefix)
 -- ------------------------------------------------------------------------
-
 -- Clear highlighting on escale in normal mode.
-keymap('n', '<Esc>', ':noh<CR><Esc>', {silent = true, noremap = true})
-
--- Terminal mode
--- ------------------------------------------------------------------------
-keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
+-- keymap('n', '<Esc>', ':noh<CR><Esc>', {silent = true, noremap = true})
 
 -- WhichKey
 -- ------------------------------------------------------------------------
@@ -44,7 +39,7 @@ vim.g.which_key_leader = {
     ['<Right>'] = 'Right window',
     ['e']       = {':NvimTreeToggle', 'File explorer'},
     ['v']       = {':FloatermNew vifm', 'ViFm'},
-    ['z']       = {'UndotreeToggle', 'Undo tree'},
+    ['U']       = {'UndotreeToggle', 'Undo tree'},
 
     -- Submenus
     -- ----------------------------------------------------------------------
@@ -127,72 +122,71 @@ vim.g.which_key_leader = {
     },
 
     -- Gist
-    ['G'] = {
-        ['name'] = '+gist',
-        -- ['a']    = {':Gist -a', 'post a gist anonymously' },
-        -- ['b']    = {':Gist -b', 'post gist browser' },
-        ['d']    = {':Gist -d', 'delete gist' },
-        ['e']    = {':Gist -e', 'edit gist' },
-        ['l']    = {':Gist -l', 'list public gists' },
-        ['s']    = {':Gist -ls', 'list starred gists' },
-        ['m']    = {':Gist -m', 'post a gist with all open buffers' },
-        ['p']    = {':Gist -p', 'post public gist' },
-        ['P']    = {':Gist -P', 'post private gist' },
-    },
+
+    --     -- ['a']    = {':Gist -a', 'post a gist anonymously' },
+    --     -- ['b']    = {':Gist -b', 'post gist browser' },
+    --     ['d']    = {':Gist -d', 'delete gist' },
+    --     ['e']    = {':Gist -e', 'edit gist' },
+    --     ['l']    = {':Gist -l', 'list public gists' },
+    --     ['s']    = {':Gist -ls', 'list starred gists' },
+    --     ['m']    = {':Gist -m', 'post a gist with all open buffers' },
+    --     ['p']    = {':Gist -p', 'post public gist' },
+    --     ['P']    = {':Gist -P', 'post private gist' },
+    -- },
 
     -- LSP / Language
-    ['l'] = {
-        ['name'] = '+lsp',
-        ['a']    = {
-            ['name'] = '+ALE',
-            ['p']    = {":ALEPrevious", 'ALEPrevious'},
-            ['n']    = {":ALENext", 'ALENext'},
-            ['f']    = {":call v:lua.vim.lsp.buf.formatting()", 'Formatting'},
-            ['d']    = {":call v:lua.vim.lsp.buf.declaration()", 'Go to declaration'},
-            ['D']    = {":call v:lua.vim.lsp.buf.definition()", 'Go to definition'},
-        },
-        ['c']    = {
-            ['name'] = '+Commands',
-            ['r']    = {":call v:lua.vim.lsp.buf.rename()", 'Rename'},
-            ['f']    = {":call v:lua.vim.lsp.buf.formatting()", 'Formatting'},
-            ['d']    = {":call v:lua.vim.lsp.buf.declaration()", 'Go to declaration'},
-            ['D']    = {":call v:lua.vim.lsp.buf.definition()", 'Go to definition'},
-        },
-        ['d']    = {
-            ['name'] = '+DiagList',
-            ['a']    = {":call v:lua.require('diaglist').open_all_diagnostics()", 'All diagnostics'},
-            ['b']    = {":call v:lua.require('diaglist').open_buffer_diagnostics()", 'Buffer diagnostics'},
-        },
-        ['s']    = {
-            ['name'] = '+Saga',
-            ['a']    = {":Lspsaga code_action<CR>", 'Code action'},
-            ['A']    = {":Lspsaga range_code_action<CR>", 'Code action for range'},
-            ['f']    = {":Lspsaga lsp_finder<CR>", 'Async LSP finder'},
-            ['h']    = {":Lspsaga hover_doc<CR>", 'Hover doc'},
-            ['H']    = {":Lspsaga signature_help<CR>", 'Signature help'},
-            ['l']    = {":Lspsaga ", 'Enter command Lspsaga'},
-            ['S']    = {":Lspsaga show_cursor_diagnostics<CR>", 'Show djagnosics on cursor'},
-            ['s']    = {":Lspsaga show_line_diagnostics<CR>", 'Show djagnosics'},
-            ['[']    = {":Lspsaga diagnostic_jump_prev<CR>", 'Jump previous djagnosics'},
-            [']']    = {":Lspsaga diagnostic_jump_next<CR>", 'Jump nex djagnosics'},
-            ['p']    = {":Lspsaga preview_definition<CR>", 'Preview definition'},
-            ['r']    = {":Lspsaga rename<CR>", 'rename'},
-            -- ['f']    = {':lua vim.lsp.buf.formatting()', 'format code'},
-            -- ['d']    = {":call v:lua.require'lspsaga.diagnostic'.show_line_diagnostics()", 'Show djagnosics'}
-        },
-        ['p']    = {
-            ['name'] = '+Python',
-            ['d']    = {':FloatermNew python manage.py shell', 'Django-admin Shell'},
-            ['p']    = {':FloatermNew python', 'Python shell'},
-            -- ['v']    = {':Vista!!', 'toogle vista view window'},
-        },
-        ['w']    = {
-            ['name'] = '+Workspace',
-            ['a']    = {':call v:lua.vim.lsp.buf.add_workspace_folder()', 'Add workspace folder'},
-            ['r']    = {':call v:lua.vim.lsp.buf.remove_workspace_folder()', 'Remove workspace folder'},
-            ['l']    = {':call v:lua.print(lua.vim.inspect(vim.lsp.bufelist_workspace_foldere()))', 'List workspace folder'},
-        },
-    },
+    -- ['l'] = {
+    --     ['name'] = '+lsp',
+    --     ['a']    = {
+    --         ['name'] = '+ALE',
+    --         ['p']    = {":ALEPrevious", 'ALEPrevious'},
+    --         ['n']    = {":ALENext", 'ALENext'},
+    --         ['f']    = {":call v:lua.vim.lsp.buf.formatting()", 'Formatting'},
+    --         ['d']    = {":call v:lua.vim.lsp.buf.declaration()", 'Go to declaration'},
+    --         ['D']    = {":call v:lua.vim.lsp.buf.definition()", 'Go to definition'},
+    --     },
+    --     ['c']    = {
+    --         ['name'] = '+Commands',
+    --         ['r']    = {":call v:lua.vim.lsp.buf.rename()", 'Rename'},
+    --         ['f']    = {":call v:lua.vim.lsp.buf.formatting()", 'Formatting'},
+    --         ['d']    = {":call v:lua.vim.lsp.buf.declaration()", 'Go to declaration'},
+    --         ['D']    = {":call v:lua.vim.lsp.buf.definition()", 'Go to definition'},
+    --     },
+    --     ['d']    = {
+    --         ['name'] = '+DiagList',
+    --         ['a']    = {":call v:lua.require('diaglist').open_all_diagnostics()", 'All diagnostics'},
+    --         ['b']    = {":call v:lua.require('diaglist').open_buffer_diagnostics()", 'Buffer diagnostics'},
+    --     },
+    --     ['s']    = {
+    --         ['name'] = '+Saga',
+    --         ['a']    = {":Lspsaga code_action<CR>", 'Code action'},
+    --         ['A']    = {":Lspsaga range_code_action<CR>", 'Code action for range'},
+    --         ['f']    = {":Lspsaga lsp_finder<CR>", 'Async LSP finder'},
+    --         ['h']    = {":Lspsaga hover_doc<CR>", 'Hover doc'},
+    --         ['H']    = {":Lspsaga signature_help<CR>", 'Signature help'},
+    --         ['l']    = {":Lspsaga ", 'Enter command Lspsaga'},
+    --         ['S']    = {":Lspsaga show_cursor_diagnostics<CR>", 'Show djagnosics on cursor'},
+    --         ['s']    = {":Lspsaga show_line_diagnostics<CR>", 'Show djagnosics'},
+    --         ['[']    = {":Lspsaga diagnostic_jump_prev<CR>", 'Jump previous djagnosics'},
+    --         [']']    = {":Lspsaga diagnostic_jump_next<CR>", 'Jump nex djagnosics'},
+    --         ['p']    = {":Lspsaga preview_definition<CR>", 'Preview definition'},
+    --         ['r']    = {":Lspsaga rename<CR>", 'rename'},
+    --         -- ['f']    = {':lua vim.lsp.buf.formatting()', 'format code'},
+    --         -- ['d']    = {":call v:lua.require'lspsaga.diagnostic'.show_line_diagnostics()", 'Show djagnosics'}
+    --     },
+    --     ['p']    = {
+    --         ['name'] = '+Python',
+    --         ['d']    = {':FloatermNew python manage.py shell', 'Django-admin Shell'},
+    --         ['p']    = {':FloatermNew python', 'Python shell'},
+    --         -- ['v']    = {':Vista!!', 'toogle vista view window'},
+    --     },
+    --     ['w']    = {
+    --         ['name'] = '+Workspace',
+    --         ['a']    = {':call v:lua.vim.lsp.buf.add_workspace_folder()', 'Add workspace folder'},
+    --         ['r']    = {':call v:lua.vim.lsp.buf.remove_workspace_folder()', 'Remove workspace folder'},
+    --         ['l']    = {':call v:lua.print(lua.vim.inspect(vim.lsp.bufelist_workspace_foldere()))', 'List workspace folder'},
+    --     },
+    -- },
 
     -- utilities
     ['u'] = {

@@ -3,11 +3,11 @@ local telescope = require("telescope")
 local actions = require('telescope.actions')
 
 telescope.setup{
-    pickers = {
-        find_files = {
-            theme = "ivy",
-        }
-    },
+    -- pickers = {
+    --     find_files = {
+    --         theme = "ivy",
+    --     }
+    -- },
     defaults = {
         layout_config = {
             flex = {
@@ -40,7 +40,6 @@ telescope.load_extension("git_worktree")
 -- keymap
 local keymap = require('utils.set_keymap')
 local opts = { noremap = true, silent = true }
-keymap("n", "\\", "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
 keymap("n", ";b", "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
 keymap("n", ";f", "<cmd>lua require('telescope.builtin').find_files()<CR>", opts)
 keymap("n", ";g", "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
