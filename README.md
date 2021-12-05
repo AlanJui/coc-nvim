@@ -1,8 +1,8 @@
-# quick.nvim
+# coc-nvim
 
-A very fast Lua based Neovim configuration that uses coc.nvim for intellisense
+搭配 coc.nvim 的 Neovim 0.5 。
 
-- [What is this?](#what-is-this)
+- [專案簡介](#what-is-this)
 - [Plugins](#plugins)
 - [Prerequisites](#prerequisites)
 - [Setup](#setup-quicknvim)
@@ -13,16 +13,15 @@ A very fast Lua based Neovim configuration that uses coc.nvim for intellisense
 - [Bindings](#bindings)
 - [Maintainers](#maintainers)
 
-## What is this?
+## 專案簡介
 
-This is a configuration for Neovim. It's written in Lua, and uses modern
-plugins like Treesitter, Telescope, and Lualine. It does however not implement
-the native Neovim LSP. It's very fast, good looking, and has a lot of nice
-features.
+Neovim 0.5 提供了 LSP 的支援，但我無法確認目前可用的 Plugins 是否已完全支援?
+可用性是否週全? 穩定性是否已驗證?
 
-<img width="1280" alt="quick nvim" src="https://user-images.githubusercontent.com/19674362/139526562-a3a9f9f8-ada7-40d6-a2a8-2c534a97e0a5.png">
+因為同意 quick-nvim 作者的觀點；想要親自驗證一下：早已發行於世，廣被世人使用
+過的 coc-nvim 是否會比現行的 LSP Plugins 更好用、更穩定?
 
-https://user-images.githubusercontent.com/19674362/139526856-bdd9023d-8780-4b0f-aa4b-4edb619e35fd.mp4
+因此有了這個實驗性質的專案。
 
 ## Plugins
 
@@ -50,21 +49,9 @@ https://user-images.githubusercontent.com/19674362/139526856-bdd9023d-8780-4b0f-
 
 #### Clone repository
 
-If you want to receive updates as this configuration gets patched, then clone
-this repository into your `.config` directory, or wherever you keep your
-current Neovim configuration.
-
 ```sh
-git clone git@github.com:albingroen/quick.nvim.git ~/.config/nvim
+git clone git@github.com:AlanJui/coc-nvim.git ~/.config/nvim
 ```
-
-#### Releases
-
-On the other hand, if you want a raw folder with the configuration files,
-without git connected to it, you can head over to the releases page, and
-download a release from there.
-
-https://github.com/albingroen/quick.nvim/releases
 
 ### 2. Install plugins
 
@@ -131,5 +118,5 @@ this.
 ## Maintainers
 
 <a href="https://github.com/albingroen"> 
-  <img src="https://avatars.githubusercontent.com/u/19674362?v=4" width="80" height="80" />
+  <img src="https://avatars.githubusercontent.com/u/2138279?v=4" width="80" height="80" />
 </a>
