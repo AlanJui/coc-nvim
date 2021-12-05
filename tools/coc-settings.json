@@ -1,0 +1,102 @@
+{
+  // Language Servers
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "lua": {
+      "command": "/home/alanjui/.local/share/lua-language-server/bin/Linux/lua-language-server",
+      "args": [
+        "-E",
+        "/home/alanjui/.local/share/lua-language-server/bin/Linux/main.lua"
+      ],
+      "filetypes": ["lua"],
+      "settings": {
+        "Lua": {
+          "workspace.library": {
+            "/usr/share/nvim/runtime/lua": true,
+            "/usr/share/nvim/runtime/lua/vim": true,
+            "/usr/share/nvim/runtime/lua/vim/lsp": true
+          },
+          "diagnostics": {
+            "globals": ["vim"]
+          }
+        }
+      }
+    }
+  },
+
+  // diagnostic-languageserver
+  "diagnostic-languageserver.filetypes": {
+    "vim": "vint",
+    "markdown": ["write-good", "markdownlint"],
+    "sh": "shellcheck",
+    "yaml": ["yamlint"],
+    "cmake": ["cmake-lint", "cmakelint"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt",
+    "cmake": "cmake-format"
+  },
+
+  // diagnostics
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": " ",
+
+  // coc-pyright
+  // "pyright.disableCompletion": false,
+  // "pyright.disableLanguageServices": false,
+  // "pyright.disableOrganizeImports": false,
+
+  // Django Support
+  "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
+  "htmldjango.enable": true,
+
+  // snippets
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+  "snippets.loadFromExtensions": true,
+  "snippets.ultisnips.enable": true,
+  "snippets.snipmate.enable": false,
+  // VS Code snippets
+  //  - Ubuntu:  "~/.config/Code/User/snippets"
+  //  - macOS:   "~/Library/Application Support/Code/User/snippets"
+  "snippets.textmateSnippetsRoots": ["~/.config/nvim/snips"],
+
+  // emmet
+  "emmet.showExpandedAbbreviation": "always",
+  "emmet.showAbbreviationSuggestions": true,
+  "emmet.includeLanguages": {
+    "htmldjango": "html",
+    "python.django": "python",
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "suggest.noselect": false,
+
+  // Auto format
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "html",
+    "htmldjango",
+    "css",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+    "graphql",
+    "yaml",
+    "json",
+    "jsonc",
+    "lua",
+    "markdown"
+  ],
+  "coc.preferences.extensionUpdateCheck": "daily"
+}
