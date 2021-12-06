@@ -80,6 +80,16 @@
   "suggest.maxCompleteItemCount": 20,
   "suggest.noselect": false,
 
+  // Markdown Lint
+
+  "markdownlint.config": {
+    "default": true,
+    "line_length": false,
+    "MD033": {
+      "allowed_elements": ["a", "img"]
+    }
+  },
+
   // Auto format
   "coc.preferences.formatOnSaveFiletypes": [
     "python",

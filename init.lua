@@ -299,6 +299,11 @@ augroup end
 -----------------------------------------------------------
 require('settings')
 
+-- coc.nvim configuration
+vim.cmd([[
+  runtime ./coc-nvim.rc.vim
+]])
+
 -- configuration for nvim-tree to show current working directory
 vim.cmd([[
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |

@@ -23,6 +23,7 @@ let g:coc_global_extensions = [
 \ 'coc-sh',
 \ 'coc-xml',
 \ 'coc-yank',
+\ 'coc-markdownlint',
 \ ]
 
 "--------------------------------------------------------------

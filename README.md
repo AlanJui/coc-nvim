@@ -61,13 +61,13 @@ To install the plugins used by quick.nvim, you need to do so using Packer.
 
 （1）啟動 Neovim 。
 
-```
+```sh
 nvim ~/.config/nvim/init.lua
 ```
 
 （2）在 Neovim 執行安裝指令。
 
-```
+```vim
 :PackerInstall
 ```
 
@@ -117,7 +117,7 @@ install the ones you want to use. For example if you want to use quick.nvim for
 TypeScript programming, you'll have to install the coc-tsserver plugin like
 this.
 
-```
+```vim
 :CocInstall coc-tsserver
 ```
 
@@ -174,6 +174,6 @@ this.
 
 ## 維護者（Maintainers）
 
-<a href="https://github.com/albingroen"> 
+<a href="https://github.com/albingroen">
   <img src="https://avatars.githubusercontent.com/u/2138279?v=4" width="80" height="80" />
 </a>
