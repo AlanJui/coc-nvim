@@ -12,7 +12,19 @@ local install_path = path.get_install_path()
 local compile_path = path.get_compile_path()
 local packer_bootstrap
 
--- print('install_path = ', install_path)
+-----------------------------------------------------------
+-- Debug Start
+-----------------------------------------------------------
+for k, v in pairs(vim.opt.rtp) do
+    print('key = ', k, "    value = ", v)
+end
+print('install_path = ', install_path)
+print('stdpath(`config`) = ' , vim.fn.stdpath('config'))
+print('stdpath(`data`) = ', vim.fn.stdpath('data'))
+-----------------------------------------------------------
+-- Debug End
+-----------------------------------------------------------
+
 if vim.fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({
         'git',
@@ -158,7 +170,7 @@ require('packer').startup({
         use {
             'ntpeters/vim-better-whitespace',
             config = vim.cmd([[
-                runtime ./lua/plugins/vim-better-whitespace.rc.vim
+            runtime ./lua/plugins/vim-better-whitespace.rc.vim
             ]])
         }
         -- Multiple cursor editting
@@ -203,14 +215,14 @@ require('packer').startup({
         use {
             'alvan/vim-closetag',
             config = vim.cmd([[
-                runtime ./lua/plugins/vim-closetag.rc.vim
+            runtime ./lua/plugins/vim-closetag.rc.vim
             ]])
         }
         -- Auto change html tags
         use {
             'AndrewRadev/tagalong.vim',
             config = vim.cmd([[
-                runtime ./lua/plugins/tagalong-vim.rc.vim
+            runtime ./lua/plugins/tagalong-vim.rc.vim
             ]])
         }
         -- Use treesitter to autoclose and autorename HTML tag
@@ -257,14 +269,14 @@ require('packer').startup({
         use {
             'instant-markdown/vim-instant-markdown',
             config = vim.cmd([[
-                runtime ./lua/plugins/vim-instant-markdown.rc.vim
+            runtime ./lua/plugins/vim-instant-markdown.rc.vim
             ]])
         }
         -- PlantUML
         use {
             'weirongxu/plantuml-previewer.vim',
             config = vim.cmd([[
-                runtime ./lua/plugins/plantuml-previewer.rc.vim
+            runtime ./lua/plugins/plantuml-previewer.rc.vim
             ]])
         }
         -- PlantUML syntax highlighting
@@ -287,11 +299,13 @@ require('packer').startup({
     },
 })
 
+-- autocmd BufWritePost ~/.config/nvim/init.lua PackerCompile
+-- autocmd BufWritePost ~/.config/coc-nvim/init.lua PackerCompile
 vim.cmd([[
 augroup packer_user_config
 autocmd!
-autocmd BufWritePost ~/.config/nvim/init.lua PackerCompile
-autocmd BufWritePost ~/.config/quick-nvim/init.lua PackerCompile
+autocmd BufWritePost ./init.lua PackerCompile
+autocmd BufWritePost ~/.config/coc-nvim/init.lua PackerCompile
 augroup end
 ]])
 
@@ -301,13 +315,13 @@ require('settings')
 
 -- coc.nvim configuration
 vim.cmd([[
-  runtime ./coc-nvim.rc.vim
+runtime ./coc-nvim.rc.vim
 ]])
 
 -- configuration for nvim-tree to show directory specified when nvim stared
 vim.cmd([[
-    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-        \ wincmd p | enew | execute 'cd ' .argv()[0] | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+\ wincmd p | enew | execute 'cd ' .argv()[0] | endif
 ]])
 
 -- Themes

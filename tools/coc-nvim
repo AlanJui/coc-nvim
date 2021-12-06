@@ -7,11 +7,13 @@ export MY_WORKING_DIR="$(pwd)"
 
 cd "$NVIM_CONFIG_DIR" && cd ..
 ln -fns "$MY_NVIM"  "nvim"
-cd "$NVIM_RUNTIME_DIR" && cd ..
+# cd "$NVIM_RUNTIME_DIR" && cd ..
+cd $NVIM_RUNTIME_DIR && cd ..
 ln -fns "$MY_NVIM"  "nvim"
 
 cd "$MY_WORKING_DIR"
-exec nvim -u "$NVIM_CONFIG_DIR/init.lua" "$@"
+# exec nvim -u "$NVIM_CONFIG_DIR/init.lua" "$@"
+exec nvim -u "$HOME/.config/nvim/init.lua" "$@"
 
 unset MY_WORKING_DIR
 unset NVIM_RUNTIME_DIR
