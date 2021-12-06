@@ -55,9 +55,27 @@ git clone git@github.com:AlanJui/coc-nvim.git ~/.config/nvim
 
 本專案使用 packer.nvim 作為 Neovim 的「插件管理工具」。本身具自動安裝
 packer.nvim 插件，與其它專案會使用到的 Neovim 插件。安裝插件的工作，
-應能於 Neovim 啟動後自動執行。若遇有異常狀況，可透過以下兩步驟手動執行。
+應能於 Neovim 啟動後自動執行。
 
-To install the plugins used by quick.nvim, you need to do so using Packer.
+完成下載，便直接啟動 Neovim ，將因插件尚未安裝，遭 Neovim 警告某些處理
+作業無法完成...。故建議在首次啟動 Neovim 前，先依下述指令，完成插件的
+安裝作業。
+
+在「終端機」執行以下指令。待看到畫面顯示：「packer.compile: Complete」
+時，按下《Ctrl》+《C》鍵，完成插件的安裝。然後再啟動 Neovim 。
+
+`Run the following command [Note: When you see "paker.compile: Complete", press Ctrl+C]`
+
+```sh
+$ nvim --headless -c 'PackerSync'
+packer.compile: Complete
+```
+
+**【附註】：**
+
+若遇有異常狀況，可透過以下兩步驟手動執行。
+
+`To install the plugins used by quick.nvim, you need to do so using Packer.`
 
 （1）啟動 Neovim 。
 
@@ -77,10 +95,7 @@ nvim ~/.config/nvim/init.lua
 的操作，宛若使用 VS Code 一般。因為發行已久，且廣為軟體開發者推崇及使用
 ，所以其可用性及穩定性，毋庸置疑。
 
-This configuration uses [coc.nvim](https://github.com/neoclide/coc.nvim) for
-intellisense, instead of the built-in Neovim LSP. This is because I think it's
-not quite mature yet, pretty tricky to configure, and doesn't have a quite as
-many languages and frameworks supported.
+`This configuration uses [coc.nvim](https://github.com/neoclide/coc.nvim) for intellisense, instead of the built-in Neovim LSP. This is because I think it's not quite mature yet, pretty tricky to configure, and doesn't have a quite as many languages and frameworks supported.`
 
 本專案透過 coc.nvim 提供的功能，可依「設定檔」進行：「COC 插件」的自動安裝作業。
 
@@ -112,10 +127,7 @@ let g:coc_global_extensions = [
 若使用者欲自行安裝某項 COC 插件，如：TypeScript Language Server 插件，可於
 進入 Neovim 後，在「指令列」以「CocInstall」自行安裝。
 
-quick.nvim doesn't ship with any default coc plugins though, so you have to
-install the ones you want to use. For example if you want to use quick.nvim for
-TypeScript programming, you'll have to install the coc-tsserver plugin like
-this.
+`You can install coc extension(plugin) manually if you want to use. For example if you want to use javascript for TypeScript programming, you'll have to install the coc-tsserver extension like this.`
 
 ```vim
 :CocInstall coc-tsserver
