@@ -2,8 +2,8 @@
 -- Startup
 -----------------------------------------------------------
 MY_VIM = 'coc-nvim'
--- DEBUG = false
-DEBUG = true
+DEBUG = false
+-- DEBUG = true
 
 if DEBUG then print('===== Begin of loading init.lua... =====') end
 -----------------------------------------------------------
