@@ -7,6 +7,7 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     },
+    // Coc.nvim Lua LS: $HOME/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls
     "lua": {
       "command": "/home/alanjui/.local/share/lua-language-server/bin/Linux/lua-language-server",
       "args": [

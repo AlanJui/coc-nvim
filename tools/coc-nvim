@@ -1,21 +1,6 @@
 #!/bin/sh
-
 export MY_NVIM="coc-nvim"
-export NVIM_CONFIG_DIR="$HOME/.config/$MY_NVIM"
-export NVIM_RUNTIME_DIR="$HOME/.local/share/$MY_NVIM"
-export MY_WORKING_DIR="$(pwd)"
+export MY_CONFIG_DIR="$HOME/.config/$MY_NVIM"
+export MY_RUNTIME_DIR="$HOME/.local/share/$MY_NVIM"
 
-cd "$NVIM_CONFIG_DIR" && cd ..
-ln -fns "$MY_NVIM"  "nvim"
-# cd "$NVIM_RUNTIME_DIR" && cd ..
-cd $NVIM_RUNTIME_DIR && cd ..
-ln -fns "$MY_NVIM"  "nvim"
-
-cd "$MY_WORKING_DIR"
-# exec nvim -u "$NVIM_CONFIG_DIR/init.lua" "$@"
-exec nvim -u "$HOME/.config/nvim/init.lua" "$@"
-
-unset MY_WORKING_DIR
-unset NVIM_RUNTIME_DIR
-unset NVIM_CONFIG_DIR
-unset MY_NVIM
+exec nvim -u "$MY_CONFIG_DIR/init.lua" "$@"

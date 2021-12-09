@@ -7,6 +7,7 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     },
+    // Coc.nvim Lua LS: $HOME/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls
     "lua": {
       "command": "/home/alanjui/.local/share/lua-language-server/bin/Linux/lua-language-server",
       "args": [
@@ -79,6 +80,16 @@
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   "suggest.noselect": false,
+
+  // Markdown Lint
+
+  "markdownlint.config": {
+    "default": true,
+    "line_length": false,
+    "MD033": {
+      "allowed_elements": ["a", "img"]
+    }
+  },
 
   // Auto format
   "coc.preferences.formatOnSaveFiletypes": [

@@ -1,3 +1,4 @@
+if DEBUG then print('<< DEBUG: Loading keymaps.lua >>') end
 -- keymap.lua
 local keymap = require('utils.set_keymap')
 local opts = { silent = true, noremap = true }
@@ -23,7 +24,6 @@ keymap('n', 'Y', 'y$', opts)
 keymap('n', 'fr', ':%s/', { noremap = true })
 
 -- Find files
--- keymap('n', '\\', ':Explore<CR>', opts)
 keymap('n', '\\', ":Lexplore<CR> :vertical resize 30<CR>", { noremap = true })
 keymap('n', '<LocalLeader>f', ':Telescope<CR>', opts)
 
@@ -34,10 +34,6 @@ keymap('i', '<S-Down>', '<Esc>:m .+1<CR>', opts)
 keymap('i', '<S-Up>',   '<Esc>:m .-2<CR>', opts)
 keymap('v', '<S-Down>', ":move '>+1<CR>gv-gv", opts)
 keymap('v', '<S-Up>',   ":move '<-2<CR>gv-gv", opts)
-
--- Comment
-keymap('n', '<C-_>', ':CommentToggle<CR>', opts)
-keymap('v', '<C-_>', ":'<,'>CommentToggle<CR>", opts)
 
 -- Windows navigation
 keymap('n', 'sp',      ':sp<CR>',     opts)
@@ -51,23 +47,23 @@ keymap('n', '<C-H>', '<C-W><C-H>', opts)
 keymap('n', '<C-K>', '<C-W><C-K>', opts)
 keymap('n', '<C-J>', '<C-W><C-J>', opts)
 
+
 -- Window Zoom In/Out
 keymap('n', '<LocalLeader>wi', '<C-w>| <C-w>_', opts)
 keymap('n', '<LocalLeader>wo', '<C-w>=', opts)
-
--- Tab navigation
-keymap('n', 'gT', ':TablineBufferPrevious<CR>',  opts)
-keymap('n', 'gt', ':TablineBufferNext<CR>',      opts)
 
 keymap('n', 'tn', ':tabnew<CR>', { noremap = true })
 keymap('n', 'tk', ':tabnext<CR>', { noremap = true })
 keymap('n', 'tj', ':tabprev<CR>', { noremap = true })
 keymap('n', 'to', ':tabo<CR>', { noremap = true })
 
--- Terminal mode
--- ------------------------------------------------------------------------
-keymap("n", "<leader>t", ":sp<CR> :term<CR> :resize 20N<CR> i", {noremap = true, silent = true})
-keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
+--------------------------------------------------------------
+-- None buildin commands
+--------------------------------------------------------------
+-- Tab navigation
+keymap('n', 'gT',  		  ':TablineBufferPrevious<CR>',  opts)
+keymap('n', 'gt',  		  ':TablineBufferNext<CR>',      opts)
 
------------------------------------------------------------------------------
--- require('coc-config')
+-- Comment
+keymap('n', '<C-_>', ':CommentToggle<CR>',      opts)
+keymap('v', '<C-_>', ":'<,'>CommentToggle<CR>", opts)

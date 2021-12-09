@@ -1,5 +1,5 @@
 " 設定 <Leader> 鍵
-" let mapleader = ","
+let mapleader = ","
 
 " coc extensions
 let g:coc_global_extensions = [
@@ -23,6 +23,7 @@ let g:coc_global_extensions = [
 \ 'coc-sh',
 \ 'coc-xml',
 \ 'coc-yank',
+\ 'coc-markdownlint',
 \ ]
 
 "--------------------------------------------------------------
@@ -77,7 +78,9 @@ endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+  "inoremap <silent><expr> <c-space> coc#refresh()
+  inoremap <silent><expr> <c-\\> coc#refresh()
+  inoremap <silent><expr> <c-@> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
@@ -183,7 +186,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <space>x  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
