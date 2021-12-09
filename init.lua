@@ -1,29 +1,72 @@
+-----------------------------------------------------------
+-- Startup
+-----------------------------------------------------------
+MY_VIM = 'coc-nvim'
+CONFIG_DIR = os.getenv('MY_CONFIG_DIR')
+RUNTIME_DIR = os.getenv('MY_RUNTIME_DIR')
+
+-- DEBUG = false
+DEBUG = true
+
+if DEBUG then print('===== Begin of loading init.lua... =====') end
+-----------------------------------------------------------
+local path_sep = vim.loop.os_uname().version:match "Windows" and "\\" or "/"
+
+local function join_paths(...)
+    local result = table.concat({ ... }, path_sep)
+    return result
+end
+
+local function print_rtp()
+    print(string.format('rtp = %s', vim.opt.rtp['_value']))
+end
+
+-----------------------------------------------------------
+-- Initial environment
+-----------------------------------------------------------
+if DEBUG then
+    print('<< Begin of Initial Envirnoment >>')
+    print_rtp()
+    print('CONFIG_DIR=', CONFIG_DIR)
+    print('RUNTIME_DIR=', RUNTIME_DIR)
+end
+
+vim.opt.rtp:remove(join_paths(vim.fn.stdpath('data'), 'site'))
+vim.opt.rtp:remove(join_paths(vim.fn.stdpath('data'), 'site', 'after'))
+vim.opt.rtp:prepend(join_paths(RUNTIME_DIR, 'site'))
+vim.opt.rtp:append(join_paths(RUNTIME_DIR, 'site', 'after'))
+
+vim.opt.rtp:remove(vim.fn.stdpath('config'))
+vim.opt.rtp:remove(join_paths( vim.fn.stdpath('config'), 'after' ))
+vim.opt.rtp:prepend(CONFIG_DIR)
+vim.opt.rtp:append(join_paths(CONFIG_DIR, 'after'))
+
+vim.cmd [[let &packpath = &runtimepath]]
+vim.cmd [["set spellfile" .. join_paths(CONFIG_DIR, "spell", "en.utf-8.add")]]
+
+if DEBUG then
+    print('<< End of Initial Envirnoment >>')
+    print_rtp()
+    print(vim.fn.stdpath('config'))
+    print(vim.fn.stdpath('data'))
+end
+
+-----------------------------------------------------------
 -- Essential configuration on development init.lua
 -----------------------------------------------------------
 require('essential')
+require('nvim_utils')
 
+-----------------------------------------------------------
 -- Plugin Manager: install plugins
 -----------------------------------------------------------
--- Coc.nvim Lua LS: /home/alanjui/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls
-local path = require('utils')
+-- Coc.nvim Lua LS: $HOME/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls
+local path = require('utils.env')
 local fn = vim.fn
 local package_root = path.get_package_root()
 local install_path = path.get_install_path()
 local compile_path = path.get_compile_path()
 local packer_bootstrap
-
------------------------------------------------------------
--- Debug Start
------------------------------------------------------------
-for k, v in pairs(vim.opt.rtp) do
-    print('key = ', k, "    value = ", v)
-end
-print('install_path = ', install_path)
-print('stdpath(`config`) = ' , vim.fn.stdpath('config'))
-print('stdpath(`data`) = ', vim.fn.stdpath('data'))
------------------------------------------------------------
--- Debug End
------------------------------------------------------------
 
 if vim.fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({
@@ -34,7 +77,7 @@ if vim.fn.empty(fn.glob(install_path)) > 0 then
         'https://github.com/wbthomason/packer.nvim',
         install_path
     })
-    print('packer_bootstrap = ', packer_bootstrap)
+    if DEBUG then print('packer_bootstrap = ', packer_bootstrap) end
 end
 
 require('packer').init({
@@ -299,17 +342,21 @@ require('packer').startup({
     },
 })
 
--- autocmd BufWritePost ~/.config/nvim/init.lua PackerCompile
--- autocmd BufWritePost ~/.config/coc-nvim/init.lua PackerCompile
-vim.cmd([[
-augroup packer_user_config
-autocmd!
-autocmd BufWritePost ./init.lua PackerCompile
-autocmd BufWritePost ~/.config/coc-nvim/init.lua PackerCompile
-augroup end
-]])
+-- vim.cmd([[
+-- augroup packer_user_config
+-- autocmd!
+-- autocmd BufWritePost ~/.config/coc-nvim/init.lua source <afile> | PackerCompile
+-- augroup end
+-- ]])
+local autocmds = {
+    packer_user_config = {
+        { "BufWritePost " .. CONFIG_DIR .. "/init.lua source <afile> | PackerCompile " },
+    }
+}
+nvim_create_augroups(autocmds)
 
--- Configurations for Neovim
+-----------------------------------------------------------
+-- Set configurations for Neovim
 -----------------------------------------------------------
 require('settings')
 
@@ -326,10 +373,10 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in
 
 -- Themes
 -- Tokyo Night Color Scheme Configuration
-vim.cmd([[ colorscheme tokyonight ]])
-vim.g.tokyonight_style = 'storm'
 -- vim.g.tokyonight_style = 'day'
 -- vim.g.tokyonight_style = 'night'
+vim.cmd([[ colorscheme tokyonight ]])
+vim.g.tokyonight_style = 'storm'
 vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_dark_float = true
 vim.g.tokyonight_transparent = true
@@ -346,6 +393,7 @@ vim.g.tokyonight_colors = {
     error = '#ff0000'
 }
 
+-----------------------------------------------------------
 -- Key bindings
 -----------------------------------------------------------
 require('keymaps')
