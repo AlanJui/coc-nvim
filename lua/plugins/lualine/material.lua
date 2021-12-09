@@ -112,47 +112,47 @@ local config = {
     extensions = {'fugitive'}
 }
 
---------------------------------------------------------
--- Inserts a component in lualine_c at left section
-local function ins_left(component)
-    table.insert(config.sections.lualine_c, component)
-end
-
--- Inserts a component in lualine_x ot right section
--- local function ins_right(component)
---     table.insert(config.sections.lualine_x, component)
+-- --------------------------------------------------------
+-- -- Inserts a component in lualine_c at left section
+-- local function ins_left(component)
+--     table.insert(config.sections.lualine_c, component)
 -- end
-
-ins_left({
-    'lsp_progress',
-    display_components = {
-        'lsp_client_name',
-        'spinner',
-        { 'title', 'percentage', 'message' }
-    },
-    -- With spinner
-    -- display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' }},
-    colors = {
-        percentage  = colors.cyan,
-        title  = colors.cyan,
-        message  = colors.cyan,
-        spinner = colors.cyan,
-        lsp_client_name = colors.magenta,
-        use = true,
-    },
-    separators = {
-        component = ' ',
-        progress = ' | ',
-        message = { pre = '(', post = ')'},
-        -- message = { commenced = 'In Progress', completed = 'Completed' },
-        percentage = { pre = '', post = '%% ' },
-        title = { pre = '', post = ': ' },
-        lsp_client_name = { pre = '[', post = ']' },
-        spinner = { pre = '', post = '' },
-    },
-    timer = { progress_enddelay = 500, spinner = 1000, lsp_client_name_enddelay = 1000 },
-    spinner_symbols = { '🌑 ', '🌒 ', '🌓 ', '🌔 ', '🌕 ', '🌖 ', '🌗 ', '🌘 ' },
-})
+--
+-- -- Inserts a component in lualine_x ot right section
+-- -- local function ins_right(component)
+-- --     table.insert(config.sections.lualine_x, component)
+-- -- end
+--
+-- ins_left({
+--     'lsp_progress',
+--     display_components = {
+--         'lsp_client_name',
+--         'spinner',
+--         { 'title', 'percentage', 'message' }
+--     },
+--     -- With spinner
+--     -- display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' }},
+--     colors = {
+--         percentage  = colors.cyan,
+--         title  = colors.cyan,
+--         message  = colors.cyan,
+--         spinner = colors.cyan,
+--         lsp_client_name = colors.magenta,
+--         use = true,
+--     },
+--     separators = {
+--         component = ' ',
+--         progress = ' | ',
+--         message = { pre = '(', post = ')'},
+--         -- message = { commenced = 'In Progress', completed = 'Completed' },
+--         percentage = { pre = '', post = '%% ' },
+--         title = { pre = '', post = ': ' },
+--         lsp_client_name = { pre = '[', post = ']' },
+--         spinner = { pre = '', post = '' },
+--     },
+--     timer = { progress_enddelay = 500, spinner = 1000, lsp_client_name_enddelay = 1000 },
+--     spinner_symbols = { '🌑 ', '🌒 ', '🌓 ', '🌔 ', '🌕 ', '🌖 ', '🌗 ', '🌘 ' },
+-- })
 
 require('lualine').setup({
     options = config.options,

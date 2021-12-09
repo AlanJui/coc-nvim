@@ -38,3 +38,14 @@ autocmd BufEnter *.lua set autoindent expandtab shiftwidth=4 tabstop=4
 -- vim.cmd([[
 -- command! -range=% Format :<line1>,<line2>s/^\s*/&&
 -- ]])
+
+PATH_SEPERATOR = vim.loop.os_uname().version:match "Windows" and "\\" or "/"
+
+function Join_paths(...)
+    local result = table.concat({ ... }, PATH_SEPERATOR) return result
+end
+
+function Print_rtp()
+    print(string.format('rtp = %s', vim.opt.rtp['_value']))
+end
+

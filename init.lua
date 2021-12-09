@@ -2,60 +2,25 @@
 -- Startup
 -----------------------------------------------------------
 MY_VIM = 'coc-nvim'
-CONFIG_DIR = os.getenv('MY_CONFIG_DIR')
-RUNTIME_DIR = os.getenv('MY_RUNTIME_DIR')
-
 DEBUG = false
 -- DEBUG = true
 
 if DEBUG then print('===== Begin of loading init.lua... =====') end
 -----------------------------------------------------------
-local path_sep = vim.loop.os_uname().version:match "Windows" and "\\" or "/"
-
-local function join_paths(...)
-    local result = table.concat({ ... }, path_sep)
-    return result
-end
-
-local function print_rtp()
-    print(string.format('rtp = %s', vim.opt.rtp['_value']))
-end
-
------------------------------------------------------------
--- Initial environment
------------------------------------------------------------
-if DEBUG then
-    print('<< Begin of Initial Envirnoment >>')
-    print_rtp()
-    print('CONFIG_DIR=', CONFIG_DIR)
-    print('RUNTIME_DIR=', RUNTIME_DIR)
-end
-
-vim.opt.rtp:remove(join_paths(vim.fn.stdpath('data'), 'site'))
-vim.opt.rtp:remove(join_paths(vim.fn.stdpath('data'), 'site', 'after'))
-vim.opt.rtp:prepend(join_paths(RUNTIME_DIR, 'site'))
-vim.opt.rtp:append(join_paths(RUNTIME_DIR, 'site', 'after'))
-
-vim.opt.rtp:remove(vim.fn.stdpath('config'))
-vim.opt.rtp:remove(join_paths( vim.fn.stdpath('config'), 'after' ))
-vim.opt.rtp:prepend(CONFIG_DIR)
-vim.opt.rtp:append(join_paths(CONFIG_DIR, 'after'))
-
-vim.cmd [[let &packpath = &runtimepath]]
-vim.cmd [["set spellfile" .. join_paths(CONFIG_DIR, "spell", "en.utf-8.add")]]
-
-if DEBUG then
-    print('<< End of Initial Envirnoment >>')
-    print_rtp()
-    print("stdpath('config')=" , vim.fn.stdpath('config'))
-    print("stdpath('data')=", vim.fn.stdpath('data'))
-end
-
------------------------------------------------------------
 -- Essential configuration on development init.lua
 -----------------------------------------------------------
 require('essential')
 require('nvim_utils')
+
+-----------------------------------------------------------
+-- Initial environment
+-----------------------------------------------------------
+require('init_env')
+
+-----------------------------------------------------------
+-- Setup runtimepath: stdpath('config'), stdpath('data')
+-----------------------------------------------------------
+require('setup_rtp')
 
 -----------------------------------------------------------
 -- Plugin Manager: install plugins
@@ -115,6 +80,7 @@ vim.g.tokyonight_colors = {
 -----------------------------------------------------------
 -- Key bindings
 -----------------------------------------------------------
+-- Load Shortcut Key
 require('keymaps')
 
 -- Load Which-key

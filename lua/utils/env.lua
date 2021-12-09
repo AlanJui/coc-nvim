@@ -4,6 +4,8 @@ local compile_path
 local package_root
 local install_path
 
+CONFIG_DIR = os.getenv('MY_CONFIG_DIR')
+RUNTIME_DIR = os.getenv('MY_RUNTIME_DIR')
 compile_path = CONFIG_DIR .. '/plugin/packer_compiled.lua'
 
 -- Neovim defualt install path

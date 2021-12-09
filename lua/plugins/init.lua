@@ -2,11 +2,10 @@ if DEBUG then print('loading plugings...') end
 -----------------------------------------------------------
 -- Plugin Manager: install plugins
 -----------------------------------------------------------
-local path = require('utils.env')
 local fn = vim.fn
-local package_root = path.get_package_root()
-local install_path = path.get_install_path()
-local compile_path = path.get_compile_path()
+local package_root = PACKAGE_ROOT
+local install_path = INSTALL_PATH
+local compile_path = COMPILE_PATH
 local packer_bootstrap
 
 if vim.fn.empty(fn.glob(install_path)) > 0 then
