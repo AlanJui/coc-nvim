@@ -5,8 +5,8 @@ MY_VIM = 'coc-nvim'
 CONFIG_DIR = os.getenv('MY_CONFIG_DIR')
 RUNTIME_DIR = os.getenv('MY_RUNTIME_DIR')
 
--- DEBUG = false
-DEBUG = true
+DEBUG = false
+-- DEBUG = true
 
 if DEBUG then print('===== Begin of loading init.lua... =====') end
 -----------------------------------------------------------

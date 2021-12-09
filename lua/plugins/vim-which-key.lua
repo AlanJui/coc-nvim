@@ -74,22 +74,22 @@ vim.g.which_key_leader = {
     },
 
     -- Configure Neovim
-    ['c'] = {
-        ['name'] = '+Configuration of Neovim',
+    ['n'] = {
+        ['name'] = '+Neovim',
         ['i']    = {':e ~/.config/coc-nvim/init.lua', 'Open [nvim]/init.lua'},
         ['I']    = {':source ~/.config/coc-nvim/init.lua', 'Reload [nvim]/init.lua'},
         ['k']    = {':e ~/.config/coc-nvim/lua/keymaps.lua', 'Open keybinding: keymaps.lua'},
         ['K']    = {':e ~/.config/coc-nvim/lua/plugins/vim-which-key.lua', 'Open which-key configuration'},
-        ['p']    = {':e ~/.config/coc-nvim/init.lua', 'Open [plugings]'},
+        ['p']    = {':e ~/.config/coc-nvim/lua/plugins/init.lua', 'Open plugings'},
         ['P']    = {':Telescope find_files shorten_path=true', 'Search configuration of plugin'},
         ['C']    = {':PackerCompile', 'PackerCompile'},
         ['s']    = {':e ~/.config/coc-nvim/lua/settings.lua', 'Open setting: settings.lua'},
         ['S']    = {':PackerSync', 'PackerSync'},
     },
 
-    -- File
+    -- Find
     ['f'] = {
-        ['name'] = '+file',
+        ['name'] = '+Find...',
         ['a']    = {':Telescope live_grep', 'Find word'},
         ['b']    = {':Telescope marks', 'Bookmarks'},
         ['f']    = {':Telescope find_files', 'Find files'},
