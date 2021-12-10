@@ -1,113 +1,146 @@
 {
   // Language Servers
   "languageserver": {
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
-    },
-    // Coc.nvim Lua LS: $HOME/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls
     "lua": {
-      "command": "/home/alanjui/.local/share/lua-language-server/bin/Linux/lua-language-server",
-      "args": [
-        "-E",
-        "/home/alanjui/.local/share/lua-language-server/bin/Linux/main.lua"
-      ],
       "filetypes": ["lua"],
       "settings": {
         "Lua": {
           "workspace.library": {
+            "/usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/lua": true,
+            "/usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/lua/vim": true,
+            "/usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/lua/vim/lsp": true,
             "/usr/share/nvim/runtime/lua": true,
             "/usr/share/nvim/runtime/lua/vim": true,
             "/usr/share/nvim/runtime/lua/vim/lsp": true
           },
+          "runtime": {
+            "version": "LuaJIT"
+          },
           "diagnostics": {
+            "disable": [
+              "undefined-global",
+              "lowercase-global",
+              "trailing-space"
+            ],
             "globals": ["vim"]
           }
         }
       }
-    }
-  },
-
-  // diagnostic-languageserver
-  "diagnostic-languageserver.filetypes": {
-    "vim": "vint",
-    "markdown": ["write-good", "markdownlint"],
-    "sh": "shellcheck",
-    "yaml": ["yamlint"],
-    "cmake": ["cmake-lint", "cmakelint"]
-  },
-  "diagnostic-languageserver.formatFiletypes": {
-    "sh": "shfmt",
-    "cmake": "cmake-format"
-  },
-
-  // diagnostics
-  "diagnostic.errorSign": " ",
-  "diagnostic.warningSign": " ",
-  "diagnostic.infoSign": "",
-  "diagnostic.hintSign": " ",
-
-  // coc-pyright
-  // "pyright.disableCompletion": false,
-  // "pyright.disableLanguageServices": false,
-  // "pyright.disableOrganizeImports": false,
-
-  // Django Support
-  "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
-  "htmldjango.enable": true,
-
-  // snippets
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
-  "snippets.loadFromExtensions": true,
-  "snippets.ultisnips.enable": true,
-  "snippets.snipmate.enable": false,
-  // VS Code snippets
-  //  - Ubuntu:  "~/.config/Code/User/snippets"
-  //  - macOS:   "~/Library/Application Support/Code/User/snippets"
-  "snippets.textmateSnippetsRoots": ["~/.config/nvim/snips"],
-
-  // emmet
-  "emmet.showExpandedAbbreviation": "always",
-  "emmet.showAbbreviationSuggestions": true,
-  "emmet.includeLanguages": {
-    "htmldjango": "html",
-    "python.django": "python",
-    "vue-html": "html",
-    "javascript": "javascriptreact"
-  },
-  "suggest.echodocSupport": true,
-  "suggest.maxCompleteItemCount": 20,
-  "suggest.noselect": false,
-
-  // Markdown Lint
-
-  "markdownlint.config": {
-    "default": true,
-    "line_length": false,
-    "MD033": {
-      "allowed_elements": ["a", "img"]
-    }
-  },
-
-  // Auto format
-  "coc.preferences.formatOnSaveFiletypes": [
-    "python",
-    "html",
-    "htmldjango",
-    "css",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-    "graphql",
-    "yaml",
-    "json",
-    "jsonc",
-    "lua",
-    "markdown"
-  ],
-  "coc.preferences.extensionUpdateCheck": "daily"
-}
+    },
+    // diagnostic-languageserver
+    "diagnostic-languageserver.filetypes": {
+      "vim": "vint",
+      "markdown": ["write-good", "markdownlint"],
+      "sh": "shellcheck",
+      "yaml": ["yamlint"],
+      "cmake": ["cmake-lint", "cmakelint"]
+    },
+    "diagnostic-languageserver.formatFiletypes": {
+      "sh": "shfmt",
+      "cmake": "cmake-format"
+    },
+    // diagnostics
+    "diagnostic.errorSign": " ",
+    "diagnostic.warningSign": " ",
+    "diagnostic.infoSign": "",
+    "diagnostic.hintSign": " ",
+    // coc-pyright
+    // "pyright.disableCompletion": false,
+    // "pyright.disableLanguageServices": false,
+    // "pyright.disableOrganizeImports": false,
+    // Django Support
+    "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
+    "htmldjango.enable": true,
+    // Auto-completion
+    "suggest.completionItemKindLabels": {
+      "keyword": "",
+      "variable": "",
+      "value": "",
+      "operator": "Ψ",
+      "function": "⨕",
+      "reference": "渚",
+      "constant": "",
+      "method": "",
+      "struct": "פּ",
+      "class": "",
+      "interface": "",
+      "text": "♣",
+      "enum": "",
+      "enumMember": "",
+      "module": "",
+      "color": "",
+      "property": "",
+      "field": "",
+      "unit": "",
+      "event": "鬒",
+      "file": "",
+      "folder": "",
+      "snippet": "",
+      "typeParameter": "",
+      "default": ""
+    },
+    // snippets
+    "coc.preferences.snippetStatusText": "Ⓢ ",
+    "snippets.extends": {
+      "cpp": ["c"],
+      "htmldjango": ["html"],
+      "javascriptreact": ["javascript"],
+      "typescript": ["javascript"]
+    },
+    // VS Code snippets
+    "snippets.snipmate.enable": false,
+    "snippets.loadFromExtensions": true,
+    "snippets.textmateSnippetsRoots": [
+      "/Users/alanjui/.config/coc/snippets",
+      "/Users/alanjui/.config/coc-nvim/snippets",
+      "/Users/alanjui/.config/coc-nvim/snips",
+      "/home/alanjui/.config/coc-nvim/snippets",
+      "~/.config/Code/User/snippets",
+      "~/Library/Application Support/Code/User/snippets"
+    ],
+    // UltiSnips
+    "snippets.ultisnips.enable": false,
+    "snippets.userSnippetsDirectory": "~/.config/coc-nvim",
+    "snippets.ultisnips.directories": [
+      "UltiSnips"
+    ],
+    // emmet
+    "emmet.showExpandedAbbreviation": "always",
+    "emmet.showAbbreviationSuggestions": true,
+    "emmet.includeLanguages": {
+      "htmldjango": "html",
+      "python.django": "python",
+      "vue-html": "html",
+      "javascript": "javascriptreact"
+    },
+    "suggest.echodocSupport": true,
+    "suggest.maxCompleteItemCount": 20,
+    "suggest.noselect": false,
+    // Markdown Lint
+    "markdownlint.config": {
+      "default": true,
+      "line_length": false,
+      "MD033": {
+        "allowed_elements": ["a", "img"]
+      }
+    },
+    // Auto format
+    "coc.preferences.formatOnSaveFiletypes": [
+      "python",
+      "html",
+      "htmldjango",
+      "css",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+      "graphql",
+      "yaml",
+      "json",
+      "jsonc",
+      "lua",
+      "markdown"
+    ],
+    "coc.preferences.extensionUpdateCheck": "daily"
+  }

@@ -26,120 +26,119 @@
           }
         }
       }
-    },
-    // diagnostic-languageserver
-    "diagnostic-languageserver.filetypes": {
-      "vim": "vint",
-      "markdown": ["write-good", "markdownlint"],
-      "sh": "shellcheck",
-      "yaml": ["yamlint"],
-      "cmake": ["cmake-lint", "cmakelint"]
-    },
-    "diagnostic-languageserver.formatFiletypes": {
-      "sh": "shfmt",
-      "cmake": "cmake-format"
-    },
-    // diagnostics
-    "diagnostic.errorSign": " ",
-    "diagnostic.warningSign": " ",
-    "diagnostic.infoSign": "",
-    "diagnostic.hintSign": " ",
-    // coc-pyright
-    // "pyright.disableCompletion": false,
-    // "pyright.disableLanguageServices": false,
-    // "pyright.disableOrganizeImports": false,
-    // Django Support
-    "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
-    "htmldjango.enable": true,
-    // Auto-completion
-    "suggest.completionItemKindLabels": {
-      "keyword": "",
-      "variable": "",
-      "value": "",
-      "operator": "Ψ",
-      "function": "⨕",
-      "reference": "渚",
-      "constant": "",
-      "method": "",
-      "struct": "פּ",
-      "class": "",
-      "interface": "",
-      "text": "♣",
-      "enum": "",
-      "enumMember": "",
-      "module": "",
-      "color": "",
-      "property": "",
-      "field": "",
-      "unit": "",
-      "event": "鬒",
-      "file": "",
-      "folder": "",
-      "snippet": "",
-      "typeParameter": "",
-      "default": ""
-    },
-    // snippets
-    "coc.preferences.snippetStatusText": "Ⓢ ",
-    "snippets.userSnippetsDirectory": "~/.config/coc-nvim/snips",
-    "snippets.extends": {
-      "cpp": ["c"],
-      "htmldjango": ["html"],
-      "javascriptreact": ["javascript"],
-      "typescript": ["javascript"]
-    },
-    // VS Code snippets
-    "snippets.loadFromExtensions": true,
-    "snippets.textmateSnippetsRoots": [
-      "~/.config/Code/User/snippets",
-      "~/Library/Application Support/Code/User/snippets",
-      "/home/alanjui/.config/coc-nvim/snips",
-      "/Users/alanjui/.config/coc-nvim/snips"
-    ],
-    // UltiSnips
-    "snippets.ultisnips.enable": false,
-    "snippets.snipmate.enable": false,
-    "snippets.ultisnips.directories": [
-      "UltiSnips",
-      "~/.config/coc-nvim/snips/UltiSnips"
-    ],
-    // emmet
-    "emmet.showExpandedAbbreviation": "always",
-    "emmet.showAbbreviationSuggestions": true,
-    "emmet.includeLanguages": {
-      "htmldjango": "html",
-      "python.django": "python",
-      "vue-html": "html",
-      "javascript": "javascriptreact"
-    },
-    "suggest.echodocSupport": true,
-    "suggest.maxCompleteItemCount": 20,
-    "suggest.noselect": false,
-    // Markdown Lint
-    "markdownlint.config": {
-      "default": true,
-      "line_length": false,
-      "MD033": {
-        "allowed_elements": ["a", "img"]
-      }
-    },
-    // Auto format
-    "coc.preferences.formatOnSaveFiletypes": [
-      "python",
-      "html",
-      "htmldjango",
-      "css",
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-      "typescript.tsx",
-      "graphql",
-      "yaml",
-      "json",
-      "jsonc",
-      "lua",
-      "markdown"
-    ],
-    "coc.preferences.extensionUpdateCheck": "daily"
-  }
+    }
+  },
+  // diagnostic-languageserver
+  "diagnostic-languageserver.filetypes": {
+    "vim": "vint",
+    "markdown": ["write-good", "markdownlint"],
+    "sh": "shellcheck",
+    "yaml": ["yamlint"],
+    "cmake": ["cmake-lint", "cmakelint"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt",
+    "cmake": "cmake-format"
+  },
+  // diagnostics
+  "diagnostic.virtualText": true,
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": " ",
+  // coc-pyright
+  "pyright.disableCompletion": false,
+  "pyright.disableLanguageServices": false,
+  "pyright.disableOrganizeImports": false,
+  // Django Support
+  "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
+  "htmldjango.enable": true,
+  // Auto-completion
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "suggest.noselect": false,
+  "suggest.detailField": "preview",
+  "suggest.completionItemKindLabels": {
+    "keyword": "",
+    "variable": "",
+    "value": "",
+    "operator": "Ψ",
+    "function": "⨕",
+    "reference": "渚",
+    "constant": "",
+    "method": "",
+    "struct": "פּ",
+    "class": "",
+    "interface": "",
+    "text": "♣",
+    "enum": "",
+    "enumMember": "",
+    "module": "",
+    "color": "",
+    "property": "",
+    "field": "",
+    "unit": "",
+    "event": "鬒",
+    "file": "",
+    "folder": "",
+    "snippet": "",
+    "typeParameter": "",
+    "default": ""
+  },
+  // snippets
+  "coc.preferences.snippetStatusText": "Ⓢ ",
+  "snippets.extends": {
+    "cpp": ["c"],
+    "htmldjango": ["html"],
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
+  // VS Code snippets
+  "snippets.textmateSnippetsRoots": [
+    "/Users/alanjui/.config/coc-nvim/jest-snippets"
+  ],
+  "snippets.loadFromExtensions": false,
+  "snippets.snipmate.enable": false,
+  // UltiSnips
+  "snippets.ultisnips.enable": false,
+  "snippets.userSnippetsDirectory": "~/.config/coc-nvim",
+  "snippets.ultisnips.directories": [
+    "UltiSnips"
+  ],
+  // emmet
+  "emmet.showExpandedAbbreviation": "always",
+  "emmet.showAbbreviationSuggestions": true,
+  "emmet.includeLanguages": {
+    "htmldjango": "html",
+    "python.django": "python",
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+  // Markdown Lint
+  "markdownlint.config": {
+    "default": true,
+    "line_length": false,
+    "MD033": {
+      "allowed_elements": ["a", "img"]
+    }
+  },
+  // Auto format
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "html",
+    "htmldjango",
+    "css",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+    "graphql",
+    "yaml",
+    "json",
+    "jsonc",
+    "lua",
+    "markdown"
+  ],
+  "coc.preferences.extensionUpdateCheck": "daily"
+}

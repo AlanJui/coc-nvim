@@ -121,6 +121,8 @@ require('packer').startup({
         -- Editting Tools
         -----------------------------------------------------------
         -- Snippets
+        -- vscode-jest-snippets installation
+        -- :CocInstall https://github.com/andys8/vscode-jest-snippets
         use 'honza/vim-snippets'
         -- Add indentation guides even on blank lines
         use {
@@ -129,13 +131,13 @@ require('packer').startup({
         }
         -- Toggle comments in Neovim
         use 'tpope/vim-commentary'
-        -- use 'JoosepAlviste/nvim-ts-context-commentstring'
-        -- use {
-        --     'terrortylor/nvim-comment',
-        --     config = function ()
-        --         require('nvim_comment').setup()
-        --     end
-        -- }
+        use 'JoosepAlviste/nvim-ts-context-commentstring'
+        use {
+            'terrortylor/nvim-comment',
+            config = function ()
+                require('nvim_comment').setup()
+            end
+        }
         -- visualizes undo history and makes it easier to browse and switch between different undo branches
         use {
             'mbbill/undotree',

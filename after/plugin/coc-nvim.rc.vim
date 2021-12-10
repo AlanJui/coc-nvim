@@ -226,6 +226,10 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
 "-----------------------------------------------------------
+" To get correct comment highlighting for jsonc
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+"-----------------------------------------------------------
 " Make <tab> used for trigger completion, completion confirm,
 " snippet expand and jump like VSCode.
 "
