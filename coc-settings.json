@@ -1,17 +1,15 @@
 {
   // Language Servers
   "languageserver": {
-    "bash": {
-      "command": "bash-language-server",
-      "args": [
-        "start"
-      ],
-      "filetypes": [
-        "sh"
-      ],
-      "ignoredRootPaths": [
-        "~"
-      ]
+  },
+  "Lua": {
+    "workspace.library": {
+      "/usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/lua": true,
+      "/usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/lua/vim": true,
+      "/usr/local/Cellar/neovim/0.5.1_1/share/nvim/runtime/lua/vim/lsp": true
+    },
+    "diagnostics": {
+      "globals": ["vim"]
     }
   },
   // diagnostic-languageserver
