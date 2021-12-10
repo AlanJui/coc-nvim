@@ -2,6 +2,11 @@
   // Language Servers
   "languageserver": {
     "lua": {
+      "command": "/home/alanjui/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/Linux/lua-language-server",
+      "args": [
+        "-E",
+        "/home/alanjui/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/Linux/main.lua"
+      ],
       "filetypes": ["lua"],
       "settings": {
         "Lua": {
@@ -94,17 +99,14 @@
     "typescript": ["javascript"]
   },
   // VS Code snippets
-  "snippets.textmateSnippetsRoots": [
-    "/Users/alanjui/.config/coc-nvim/jest-snippets"
-  ],
+  // :CocInstall https://github.com/andys8/vscode-jest-snippets
+  "snippets.textmateSnippetsRoots": ["/home/alanjui/.config/coc-nvim/snips"],
   "snippets.loadFromExtensions": false,
   "snippets.snipmate.enable": false,
   // UltiSnips
   "snippets.ultisnips.enable": false,
   "snippets.userSnippetsDirectory": "~/.config/coc-nvim",
-  "snippets.ultisnips.directories": [
-    "UltiSnips"
-  ],
+  "snippets.ultisnips.directories": ["UltiSnips"],
   // emmet
   "emmet.showExpandedAbbreviation": "always",
   "emmet.showAbbreviationSuggestions": true,
