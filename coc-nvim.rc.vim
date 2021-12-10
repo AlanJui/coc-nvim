@@ -3,6 +3,7 @@ let mapleader = ","
 
 " coc extensions
 let g:coc_global_extensions = [
+\ 'coc-lua',
 \ 'coc-pyright',
 \ 'coc-htmldjango',
 \ 'coc-emmet',

@@ -98,6 +98,8 @@ require('nvim_utils')
 -----------------------------------------------------------
 -- Plugin Manager: install plugins
 -----------------------------------------------------------
+-- To do "PackerCompile" automatically when file:
+-- `<Nvim>/lua/plugings/init.lua` is saved
 -- vim.cmd([[
 -- augroup packer_user_config
 -- autocmd!
