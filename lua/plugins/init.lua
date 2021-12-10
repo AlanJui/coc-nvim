@@ -120,6 +120,8 @@ require('packer').startup({
         -----------------------------------------------------------
         -- Editting Tools
         -----------------------------------------------------------
+        -- Snippets
+        use 'honza/vim-snippets'
         -- Add indentation guides even on blank lines
         use {
             'lukas-reineke/indent-blankline.nvim',
