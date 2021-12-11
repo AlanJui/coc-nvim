@@ -68,10 +68,12 @@
   },
   // VS Code snippets
   // :CocInstall https://github.com/andys8/vscode-jest-snippets
+  // "snippets.textmateSnippetsRoots": [
+  //   "~/.config/coc-nvim/jest-snippets/snippets",
+  //   "~/.config/coc-nvim/snips"
+  // ],
   "snippets.textmateSnippetsRoots": [
-    "/Users/alanjui/.config/coc-nvim/snips",
-    "/Users/alanjui/.config/coc-nvim/jest-snippets",
-    "/home/alanjui/.config/coc-nvim/snips"
+    "~/.config/coc-nvim/jest-snippets/snippets"
   ],
   "snippets.loadFromExtensions": false,
   "snippets.snipmate.enable": false,
