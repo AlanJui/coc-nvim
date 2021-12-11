@@ -1,6 +1,38 @@
 {
   // Language Servers
-  "languageserver": {},
+  "languageserver": {
+    "lua": {
+      "command": "/Users/alanjui/.local/share/lua-language-server/bin/macOS/lua-language-server",
+      "args": [
+        "-E",
+        "/Users/alanjui/.local/share/lua-language-server/main.lua"
+      ],
+      "filetypes": ["lua"],
+      "settings": {
+        "Lua": {
+          "workspace.library": {
+            "/usr/local/Cellar/neovim/0.6.0/share/nvim/runtime/lua": true,
+            "/usr/local/Cellar/neovim/0.6.0/share/nvim/runtime/lua/vim": true,
+            "/usr/local/Cellar/neovim/0.6.0/share/nvim/runtime/lua/vim/lsp": true,
+            "/usr/share/nvim/runtime/lua": true,
+            "/usr/share/nvim/runtime/lua/vim": true,
+            "/usr/share/nvim/runtime/lua/vim/lsp": true
+          },
+          "runtime": {
+            "version": "LuaJIT"
+          },
+          "diagnostics": {
+            "disable": [
+              "undefined-global",
+              "lowercase-global",
+              "trailing-space"
+            ],
+            "globals": ["vim"]
+          }
+        }
+      }
+    }
+  },
   // diagnostic-languageserver
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
@@ -69,9 +101,8 @@
   // VS Code snippets
   // :CocInstall https://github.com/andys8/vscode-jest-snippets
   "snippets.textmateSnippetsRoots": [
-    "/Users/alanjui/.config/coc-nvim/snips",
-    "/Users/alanjui/.config/coc-nvim/jest-snippets",
-    "/home/alanjui/.config/coc-nvim/snips"
+    "/home/alanjui/.config/coc-nvim/snips",
+    "/Users/alanjui/.config/coc-nvim/snips"
   ],
   "snippets.loadFromExtensions": false,
   "snippets.snipmate.enable": false,

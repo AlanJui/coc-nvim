@@ -114,6 +114,9 @@ local autocmds = {
 nvim_create_augroups(autocmds)
 require('plugins')
 
+-- Initial and startup Language Server
+require('lsp.lua-ls')
+
 -----------------------------------------------------------
 -- Set configurations for Neovim
 -----------------------------------------------------------

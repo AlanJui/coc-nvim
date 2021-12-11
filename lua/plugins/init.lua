@@ -32,6 +32,7 @@ require('packer').startup({
         -----------------------------------------------------------
         -- LSP Tools
         -----------------------------------------------------------
+        use 'neovim/nvim-lspconfig'
         use {'neoclide/coc.nvim', branch = 'release'}
         use {'rafcamlet/coc-nvim-lua'}
         -----------------------------------------------------------
