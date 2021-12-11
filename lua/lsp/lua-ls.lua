@@ -22,10 +22,35 @@ end
 -- set the path to the sumneko installation
 -- local system_name = "Linux" -- (Linux, macOS, or Windows)
 local system_name = OS_SYS
+
+-- coc-sumneko-lua
+-- local sumneko_root_path = HOME .. '/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls/extension/server/bin/' .. OS_SYS
+-- local sumneko_binary = sumneko_root_path .. '/lua-language-server'
+
+-- Manually install
 local sumneko_root_path = HOME .. '/.local/share/lua-language-server'
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server"
+
+local runtime_path = vim.split(package.path, ';')
+--<<<<<<<<<
+if DEBUG then
+    print('<< Begin of setup Lua Server >>')
+    -- print(string.format('package.path=%s', package.path))
+    print('runtime_path=')
+    Print_table(runtime_path)
+end
+
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
+if DEBUG then
+    print('after table.insert: runtime_path=')
+    Print_table(runtime_path)
+    Print_rtp()
+end
 
 require('lspconfig').sumneko_lua.setup({
+    -- cmd = { "lua-language-server" };
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
     -- An example of settings for an LSP server.
     --    For more options, see nvim-lspconfig
@@ -35,7 +60,7 @@ require('lspconfig').sumneko_lua.setup({
                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = 'LuaJIT',
                 -- Setup your lua path
-                path = vim.split(package.path, ';'),
+                path = runtime_path,
             },
             diagnostics = {
                 -- Get the language server to recognize the `vim` global
@@ -43,13 +68,16 @@ require('lspconfig').sumneko_lua.setup({
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files
-                library = {
-                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-                },
+                library = vim.api.nvim_get_runtime_file("", true),
             },
         }
     },
 
     on_attach = custom_lsp_attach
 })
+
+
+if DEBUG then
+    print('<< End of setup Lua Server >>')
+    Print_rtp()
+end

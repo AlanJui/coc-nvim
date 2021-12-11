@@ -1,6 +1,63 @@
 {
   // Language Servers
-  "languageserver": {},
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "lua": {
+      "command": "lua-language-server",
+      "filetypes": ["lua"]
+    }
+  },
+  "Lua": {
+    "diagnostics": {
+      "globals": ["vim"],
+      "disable": [
+        "undefined-global",
+        "lowercase-global",
+        "trailing-space"
+      ]
+    }
+  },
+  "Lua.diagnostics.enable": true,
+  "Lua.diagnostics.severity": {
+    "redefined-local": "Hint",
+    "emmy-lua": "Hint",
+    "undefined-global": "Hint",
+    "lowercase-global": "Hint"
+  },
+  // snippets
+  "coc.preferences.snippetStatusText": "Ⓢ ",
+  "snippets.extends": {
+    "cpp": ["c"],
+    "python": ["django"],
+    "htmldjango": ["html"],
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
+  // VS Code snippets
+  // :CocInstall https://github.com/andys8/vscode-jest-snippets
+  "snippets.textmateSnippetsRoots": [
+    "~/.config/coc-nvim/jest-snippets/snippets"
+  ],
+  "snippets.loadFromExtensions": false,
+  "snippets.snipmate.enable": true,
+  // UltiSnips
+  "snippets.ultisnips.enable": true,
+  "snippets.userSnippetsDirectory": "~/.config/coc-nvim",
+  "snippets.ultisnips.directories": ["UltiSnips"],
+  // emmet
+  "emmet.showExpandedAbbreviation": "always",
+  "emmet.showAbbreviationSuggestions": true,
+  "emmet.includeLanguages": {
+    "htmldjango": "html",
+    "python.django": "python",
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
   // diagnostic-languageserver
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
@@ -57,38 +114,6 @@
     "snippet": "",
     "typeParameter": "",
     "default": ""
-  },
-  // snippets
-  "coc.preferences.snippetStatusText": "Ⓢ ",
-  "snippets.extends": {
-    "cpp": ["c"],
-    "htmldjango": ["html"],
-    "javascriptreact": ["javascript"],
-    "typescript": ["javascript"]
-  },
-  // VS Code snippets
-  // :CocInstall https://github.com/andys8/vscode-jest-snippets
-  // "snippets.textmateSnippetsRoots": [
-  //   "~/.config/coc-nvim/jest-snippets/snippets",
-  //   "~/.config/coc-nvim/snips"
-  // ],
-  "snippets.textmateSnippetsRoots": [
-    "~/.config/coc-nvim/jest-snippets/snippets"
-  ],
-  "snippets.loadFromExtensions": false,
-  "snippets.snipmate.enable": false,
-  // UltiSnips
-  "snippets.ultisnips.enable": false,
-  "snippets.userSnippetsDirectory": "~/.config/coc-nvim",
-  "snippets.ultisnips.directories": ["UltiSnips"],
-  // emmet
-  "emmet.showExpandedAbbreviation": "always",
-  "emmet.showAbbreviationSuggestions": true,
-  "emmet.includeLanguages": {
-    "htmldjango": "html",
-    "python.django": "python",
-    "vue-html": "html",
-    "javascript": "javascriptreact"
   },
   // Markdown Lint
   "markdownlint.config": {
