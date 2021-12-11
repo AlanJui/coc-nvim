@@ -9,17 +9,14 @@
     },
     "lua": {
       "command": "lua-language-server",
-      "filetypes": ["lua"]
-    }
-  },
-  "Lua": {
-    "diagnostics": {
-      "globals": ["vim"],
-      "disable": [
-        "undefined-global",
-        "lowercase-global",
-        "trailing-space"
-      ]
+      "filetypes": ["lua"],
+      "settings": {
+        "Lua": {
+          "diagnostics": {
+            "globals": ["vim"]
+          }
+        }
+      }
     }
   },
   "Lua.diagnostics.enable": true,
