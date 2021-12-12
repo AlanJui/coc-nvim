@@ -19,9 +19,13 @@ Neovim 0.5 提供了 LSP 的支援，但我無法確認目前可用的 Plugins �
 可用性是否週全? 穩定性是否已驗證?
 
 因為同意 quick-nvim 作者的觀點；想要親自驗證一下：早已發行於世，廣被世人使用
-過的 coc-nvim 是否會比現行的 LSP Plugins 更好用、更穩定?
+過的 coc-nvim 是否會比現行的 LSP Plugins 更好用、更穩定些? 因為生活的經驗教會
+我，太新的東西，也許夠潮；但卻未曾被檢驗，證實其可用性及可靠性！
 
-因此有了這個實驗性質的專案。
+因此有了這個實驗性質的專案：以 Neovim 0.5 為基底，採 coc.nvim
+各類插件（extensions），實作 LSP 應用的試驗。
+
+`This configuration uses [coc.nvim](https://github.com/neoclide/coc.nvim) for intellisense, instead of the built-in Neovim LSP. This is because I think it's not quite mature yet, pretty tricky to configure, and doesn't have a quite as many languages and frameworks supported.`
 
 ## 插件（Plugins）
 
@@ -48,54 +52,62 @@ Neovim 0.5 提供了 LSP 的支援，但我無法確認目前可用的 Plugins �
 ### 1. 下載（Download）
 
 ```sh
-git clone git@github.com:AlanJui/coc-nvim.git ~/.config/nvim
+git clone git@github.com:AlanJui/coc-nvim.git ~/.config
 ```
 
 ### 2. 安裝插件（Install plugins）
 
-本專案使用 packer.nvim 作為 Neovim 的「插件管理工具」。本身具自動安裝
-packer.nvim 插件，與其它專案會使用到的 Neovim 插件。安裝插件的工作，
-應能於 Neovim 啟動後自動執行。
+本專案使用 packer.nvim 作為 Neovim 的「插件管理工具」。Neovim 啟動後將自動安裝
+packer.nvim 插件；而專案使用到的其它插件，其安裝工作，也會由 packer.nvim 自動
+執行。
 
-完成下載，便直接啟動 Neovim ，將因插件尚未安裝，遭 Neovim 警告某些處理
-作業無法完成...。故建議在首次啟動 Neovim 前，先依下述指令，完成插件的
-安裝作業。
+(1) 首次啟動 Neovim 
 
-在「終端機」執行以下指令。待看到畫面顯示：「packer.compile: Complete」
-時，按下《Ctrl》+《C》鍵，完成插件的安裝。然後再啟動 Neovim 。
+啟動 Neovim 時，會將因插件尚未安裝，遭 Neovim 警告某些處理
+作業無法完成...，遇此狀況莫慌，請繼續下去直到進入 Neovim。
 
-`Run the following command [Note: When you see "paker.compile: Complete", press Ctrl+C]`
+
+`Run the following command to start Neovim`
 
 ```sh
-$ nvim --headless -c 'PackerSync'
-packer.compile: Complete
+$ cd ~/.config/coc-nvim
+$ mkdir ~/.local/bin
+$ cp tools/coc-nvim ~/.local/bin/
+$ coc-nvim 
+```
+
+(2) 安裝插件
+
+在 Neovim 啟動後，按鍵盤的《：》，進入「指令」模式後，輸入：`PackerSync`，
+再按《Enter》鍵，要求 Neovim 執行「PackerSync」指令，以便 nvim.packer 這插件
+開始執行其它插件的安裝工作。待插件安裝完成後，即可退出 Neovim 。
+
+```vim
+:PackerSync
+```
+
+### 3. 操作 Neovim（Start Neovim）
+
+本專案不會佔用 `~/.config/nvim` 這個目錄。其好處為：使用者若想自學 Neovim ，
+這個目錄可留給您學習，做實驗用；但有麻煩則為：使用者若直接輸入指令 nvim ，則
+無法使用本專案的 Neovim 設定。
+
+請務必記得，需以如下指令啟動：
+
+`Start coc-nvim`
+
+```
+$ coc-nvim
 ```
 
 **【附註】：**
 
-若遇有異常狀況，可透過以下兩步驟手動執行。
+本專案的 Neovim 設定檔存放目錄及插件的存放目錄說明：
 
-`To install the plugins used by quick.nvim, you need to do so using Packer.`
+ - 設定存放目錄路徑： `~/.config/coc-nvim/`
+ - 插件存放目錄路徑： `~/.local/share/coc-nvim/`
 
-（1）啟動 Neovim 。
-
-```sh
-nvim ~/.config/nvim/init.lua
-```
-
-（2）在 Neovim 執行安裝指令。
-
-```vim
-:PackerInstall
-```
-
-## coc.nvim
-
-在 Neovim 0.5 尚未推出前，coc.nvim 是 Neovim 使用者的良伴。可令 Neovim
-的操作，宛若使用 VS Code 一般。因為發行已久，且廣為軟體開發者推崇及使用
-，所以其可用性及穩定性，毋庸置疑。
-
-`This configuration uses [coc.nvim](https://github.com/neoclide/coc.nvim) for intellisense, instead of the built-in Neovim LSP. This is because I think it's not quite mature yet, pretty tricky to configure, and doesn't have a quite as many languages and frameworks supported.`
+## coc.nvim 插件(coc.nvim extensions)
 
 本專案透過 coc.nvim 提供的功能，可依「設定檔」進行：「COC 插件」的自動安裝作業。
 
