@@ -38,9 +38,3 @@ autocmd BufEnter *.lua set autoindent expandtab shiftwidth=4 tabstop=4
 -- vim.cmd([[
 -- command! -range=% Format :<line1>,<line2>s/^\s*/&&
 -- ]])
-
-function Print_table(a_table)
-    for k, v in pairs(a_table) do
-        print('key = ', k, "    value = ", v)
-    end
-end

@@ -23,6 +23,12 @@ function Print_rtp()
     print(string.format('rtp = %s', vim.opt.rtp['_value']))
 end
 
+function Print_table(a_table)
+    for k, v in pairs(a_table) do
+        print('key = ', k, "    value = ", v)
+    end
+end
+
 -----------------------------------------------------------
 -- Initial environment
 -----------------------------------------------------------
@@ -162,3 +168,6 @@ require('plugins.vim-which-key')
 -----------------------------------------------------------
 -- Experiments
 -----------------------------------------------------------
+
+
+if DEBUG then print('===== End of loading init.lua... =====') end
