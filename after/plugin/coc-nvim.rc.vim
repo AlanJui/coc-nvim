@@ -2,9 +2,9 @@
 let mapleader = ","
 
 " coc extensions
+"\ 'coc-htmldjango',
 let g:coc_global_extensions = [
 \ 'coc-pyright',
-\ 'coc-htmldjango',
 \ 'coc-emmet',
 \ 'coc-html',
 \ 'coc-css',
